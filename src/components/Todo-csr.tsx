@@ -24,7 +24,7 @@ const TodoCsr = () => {
   } = useQuery({
     queryKey: ['todos'],
     queryFn: async () => {
-      const response = await fetch('http://localhost:4000/todos');
+      const response = await fetch(`http://localhost:4000/todos`);
       const todos = await response.json();
       return todos;
     },

@@ -8,7 +8,7 @@ const Report = () => {
   const { data: todos } = useQuery({
     queryKey: ['todos'],
     queryFn: async () => {
-      const response = await fetch('http://localhost:4000/todos', {
+      const response = await fetch(`http://localhost:4000/todos`, {
         next: {
           revalidate: 10,
         },
