@@ -24,7 +24,7 @@ const TodoCsr = () => {
   } = useQuery({
     queryKey: ['todos'],
     queryFn: async () => {
-      const response = await fetch('http://localhost:3001/todos');
+      const response = await fetch('http://localhost:4000/todos');
       const todos = await response.json();
       return todos;
     },
@@ -32,7 +32,7 @@ const TodoCsr = () => {
 
   const newTodoMutation = useMutation({
     mutationFn: async (newTodo: NewTodo) => {
-      const response = await fetch(`http://localhost:3001/todos`, {
+      const response = await fetch(`http://localhost:4000/todos`, {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',
@@ -45,7 +45,7 @@ const TodoCsr = () => {
 
   const deleteTodoMutation = useMutation({
     mutationFn: async (id: string) => {
-      const response = await fetch(`http://localhost:3001/todos/${id}`, {
+      const response = await fetch(`http://localhost:4000/todos/${id}`, {
         method: 'DELETE',
       });
       return response.json();
@@ -54,7 +54,7 @@ const TodoCsr = () => {
 
   const patchTodoMutation = useMutation({
     mutationFn: async (params: { id: string; isDone: boolean }) => {
-      const response = await fetch(`http://localhost:3001/todos/${params.id}`, {
+      const response = await fetch(`http://localhost:4000/todos/${params.id}`, {
         method: 'PATCH',
         headers: {
           'Content-Type': 'application/json',

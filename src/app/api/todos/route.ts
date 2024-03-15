@@ -1,5 +1,5 @@
 export async function GET(request: Request) {
-  const response = await fetch('http://localhost:3001/todos');
+  const response = await fetch('http://localhost:4000/todos');
   const todos = await response.json();
 
   if (!todos) {
@@ -21,7 +21,7 @@ export async function GET(request: Request) {
 
 export async function POST(request: Request) {
   const { title, contents } = await request.json();
-  const response = await fetch('http://localhost:3001/todos', {
+  const response = await fetch('http://localhost:4000/todos', {
     method: 'POST',
     headers: {
       'Content-Type': 'application/json',
@@ -36,7 +36,7 @@ export async function POST(request: Request) {
 }
 
 export async function DELETE(request: Request) {
-  const response = await fetch(`http://localhost:3001/todos`, {
+  const response = await fetch(`http://localhost:4000/todos`, {
     method: 'DELETE',
   });
   const todos = await response.json();
@@ -54,7 +54,7 @@ export async function DELETE(request: Request) {
 
 export async function PATCH(request: Request) {
   const { id, isDone } = await request.json();
-  const response = await fetch(`http://localhost:3001/todos/${id}`, {
+  const response = await fetch(`http://localhost:4000/todos/${id}`, {
     method: 'PATCH',
     headers: {
       'Content-Type': 'application/json',

@@ -1,7 +1,7 @@
 import React from 'react';
 
 const page = async () => {
-  const response = await fetch(`http://localhost:3001/companyInfo`);
+  const response = await fetch(`http://localhost:4000/companyInfo`);
   const companyInfo = await response.json();
   return (
     <div className="max-w-[1200px] min-w-[800px] h-[800px] mx-auto pt-[60px]">
